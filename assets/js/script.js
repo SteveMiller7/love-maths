@@ -15,6 +15,12 @@ document.addEventListener("DOMContentLoaded", function() {
         })
     }
 
+    document.getElementById("answer-box").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            checkAnswer();
+        }
+    })
+
 
     runGame("addition");
 })
@@ -23,6 +29,9 @@ document.addEventListener("DOMContentLoaded", function() {
  * and after the user's answer has been processed
  */
 function runGame(gameType) {
+
+    document.getElementById("answer-box").value = ""; //Empties the box after every answer so we dont have to do it manually
+    document.getElementById("answer-box").focus(); // puts cursor back in the box automaticallly when page is reloaded. Called Setting the Focus
     // Creates 2 random numbers between 1 and 25
     let num1 = Math.floor(Math.random() *25) + 1;
     let num2 = Math.floor(Math.random() *25) + 1;
